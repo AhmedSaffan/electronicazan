@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>المؤذن الإلكتروني</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
@@ -19,83 +24,147 @@
     }
 
     body{
+
       font-family:'Cairo',sans-serif;
-      background:#3b0d0d;
+
+      background:#4a0707;
+
       min-height:100vh;
+
       display:flex;
+
       justify-content:center;
+
       align-items:center;
-      padding:20px;
+
+      padding:25px;
     }
 
     .board{
+
       width:100%;
-      max-width:700px;
-      background:#e7c48d;
-      border:14px solid #7b1d1d;
-      border-radius:24px;
-      padding:22px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.4);
+
+      max-width:1400px;
+
+      background:#e8c58d;
+
+      border:18px solid #7a1212;
+
+      border-radius:28px;
+
+      padding:28px;
+
+      box-shadow:0 25px 60px rgba(0,0,0,0.45);
     }
 
     .title{
-      background:#7b1d1d;
+
+      background:#7a1212;
+
       color:white;
+
       text-align:center;
-      padding:18px;
-      border-radius:18px;
-      font-size:40px;
+
+      padding:20px;
+
+      border-radius:20px;
+
+      font-size:54px;
+
       font-weight:900;
-      margin-bottom:22px;
+
+      margin-bottom:25px;
     }
 
     .clock{
+
       background:black;
+
       color:#ff0000;
+
       text-align:center;
-      font-size:72px;
+
+      font-size:90px;
+
       font-family:monospace;
-      padding:14px;
-      border-radius:16px;
-      margin-bottom:22px;
-      letter-spacing:4px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.35);
+
+      padding:18px;
+
+      border-radius:20px;
+
+      margin-bottom:25px;
+
+      letter-spacing:5px;
+
+      box-shadow:0 10px 25px rgba(0,0,0,0.35);
     }
 
     .next-prayer{
+
       background:black;
+
       color:#00ff66;
+
       text-align:center;
-      font-size:30px;
-      padding:14px;
-      border-radius:14px;
-      margin-bottom:28px;
+
+      font-size:42px;
+
+      padding:18px;
+
+      border-radius:18px;
+
+      margin-bottom:35px;
+
       font-weight:bold;
+
       box-shadow:0 8px 20px rgba(0,0,0,0.25);
     }
 
     .grid{
+
       display:grid;
-      grid-template-columns:1fr auto 1fr;
-      gap:18px;
-      align-items:start;
+
+      grid-template-columns:1fr 220px 1fr;
+
+      gap:24px;
+
+      align-items:stretch;
     }
 
     .column-title{
+
       text-align:center;
-      font-size:28px;
+
+      font-size:42px;
+
       font-weight:900;
-      margin-bottom:14px;
+
+      margin-bottom:20px;
+
       color:#111;
     }
 
     .time-box{
+
       background:black;
-      border-radius:14px;
-      padding:14px;
-      margin-bottom:14px;
+
+      border-radius:18px;
+
+      padding:20px;
+
+      margin-bottom:20px;
+
       text-align:center;
+
       box-shadow:0 8px 18px rgba(0,0,0,0.25);
+
+      height:190px;
+
+      display:flex;
+
+      flex-direction:column;
+
+      justify-content:center;
     }
 
     .azan .time-box{
@@ -107,70 +176,138 @@
     }
 
     .prayer-name{
+
       color:white;
-      font-size:22px;
-      margin-bottom:6px;
+
+      font-size:38px;
+
+      margin-bottom:18px;
+
       font-weight:700;
     }
 
     .time{
-      font-size:38px;
+
+      font-size:70px;
+
       font-family:monospace;
-      letter-spacing:2px;
+
+      letter-spacing:3px;
     }
 
     .center{
-      background:#b86c24;
-      border-radius:18px;
-      padding:16px;
-      min-width:140px;
-      text-align:center;
+
+      background:#b56d27;
+
+      border-radius:22px;
+
+      padding:18px;
+
+      display:flex;
+
+      flex-direction:column;
+
+      justify-content:space-between;
+
+      align-items:center;
+
       box-shadow:0 8px 18px rgba(0,0,0,0.25);
     }
 
     .center div{
-      font-size:30px;
+
+      flex:1;
+
+      width:100%;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      font-size:48px;
+
       font-weight:900;
-      margin:18px 0;
+
+      color:black;
     }
 
     .bottom{
+
       display:flex;
+
       justify-content:space-between;
-      margin-top:24px;
-      gap:12px;
+
+      margin-top:30px;
+
+      gap:15px;
+
       flex-wrap:wrap;
     }
 
     .bottom-box{
+
       background:black;
+
       color:#ffcc00;
-      padding:16px 22px;
-      border-radius:16px;
-      font-size:30px;
+
+      padding:18px 28px;
+
+      border-radius:18px;
+
+      font-size:42px;
+
       font-weight:900;
+
       box-shadow:0 8px 18px rgba(0,0,0,0.25);
     }
 
     .footer{
+
       text-align:center;
-      margin-top:22px;
+
+      margin-top:28px;
+
       color:#555;
+
       font-weight:bold;
-      font-size:18px;
+
+      font-size:22px;
     }
 
-    @media(max-width:700px){
+    @media(max-width:900px){
 
       .grid{
         grid-template-columns:1fr;
       }
 
       .clock{
-        font-size:48px;
+        font-size:56px;
       }
 
       .title{
+        font-size:34px;
+      }
+
+      .time{
+        font-size:50px;
+      }
+
+      .prayer-name{
+        font-size:28px;
+      }
+
+      .center div{
+        padding:18px 0;
+        font-size:34px;
+      }
+
+      .column-title{
+        font-size:32px;
+      }
+
+      .next-prayer{
         font-size:28px;
       }
 
@@ -179,6 +316,7 @@
   </style>
 
 </head>
+
 <body>
 
 <div class="board">
@@ -196,6 +334,8 @@
   </div>
 
   <div class="grid">
+
+    <!-- AZAN -->
 
     <div class="azan">
 
@@ -230,15 +370,23 @@
 
     </div>
 
+    <!-- CENTER -->
+
     <div class="center">
 
       <div>الفجر</div>
+
       <div>الظهر</div>
+
       <div>العصر</div>
+
       <div>المغرب</div>
+
       <div>العشاء</div>
 
     </div>
+
+    <!-- EQAMA -->
 
     <div class="eqama">
 
@@ -300,7 +448,9 @@ function updateClock(){
   const now = new Date();
 
   const h = String(now.getHours()).padStart(2,'0');
+
   const m = String(now.getMinutes()).padStart(2,'0');
+
   const s = String(now.getSeconds()).padStart(2,'0');
 
   document.getElementById("clock").innerHTML =
@@ -312,31 +462,41 @@ setInterval(updateClock,1000);
 updateClock();
 
 const prayers = [
+
   { name: "الفجر", time: "04:15" },
+
   { name: "الظهر", time: "12:05" },
+
   { name: "العصر", time: "15:42" },
+
   { name: "المغرب", time: "18:31" },
+
   { name: "العشاء", time: "19:58" }
+
 ];
 
-function getNextPrayer() {
+function getNextPrayer(){
 
   const now = new Date();
 
-  for (let prayer of prayers) {
+  for(let prayer of prayers){
 
-    const [hours, minutes] = prayer.time.split(":");
+    const [hours,minutes] = prayer.time.split(":");
 
     const prayerDate = new Date();
 
     prayerDate.setHours(hours);
+
     prayerDate.setMinutes(minutes);
+
     prayerDate.setSeconds(0);
 
-    if (prayerDate > now) {
+    if(prayerDate > now){
 
       return {
+
         name: prayer.name,
+
         date: prayerDate
       };
 
@@ -346,24 +506,28 @@ function getNextPrayer() {
 
   const fajr = prayers[0];
 
-  const [hours, minutes] = fajr.time.split(":");
+  const [hours,minutes] = fajr.time.split(":");
 
   const tomorrow = new Date();
 
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setDate(tomorrow.getDate()+1);
 
   tomorrow.setHours(hours);
+
   tomorrow.setMinutes(minutes);
+
   tomorrow.setSeconds(0);
 
   return {
-    name: fajr.name,
-    date: tomorrow
+
+    name:fajr.name,
+
+    date:tomorrow
   };
 
 }
 
-function updateCountdown() {
+function updateCountdown(){
 
   const nextPrayer = getNextPrayer();
 
@@ -372,23 +536,30 @@ function updateCountdown() {
   const diff = nextPrayer.date - now;
 
   const hours =
-    Math.floor(diff / (1000 * 60 * 60));
+    Math.floor(diff / (1000*60*60));
 
   const minutes =
-    Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    Math.floor((diff % (1000*60*60)) / (1000*60));
 
   const seconds =
-    Math.floor((diff % (1000 * 60)) / 1000);
+    Math.floor((diff % (1000*60)) / 1000);
 
   const formatted =
+
     String(hours).padStart(2,'0') + ":" +
+
     String(minutes).padStart(2,'0') + ":" +
+
     String(seconds).padStart(2,'0');
 
   document.getElementById("nextPrayer").innerHTML =
+
     "باقي على " +
+
     nextPrayer.name +
+
     " : " +
+
     formatted;
 
 }
@@ -400,4 +571,5 @@ updateCountdown();
 </script>
 
 </body>
+
 </html>
