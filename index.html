@@ -1,18 +1,17 @@
-# index.html
-
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المؤذن الإلكتروني</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -21,252 +20,271 @@
 
     body{
       font-family:'Cairo',sans-serif;
-      background:#3d0f0f;
+      background:#3b0d0d;
       min-height:100vh;
       display:flex;
       justify-content:center;
       align-items:center;
-      padding:25px;
+      padding:20px;
     }
 
-    .frame{
+    .board{
       width:100%;
       max-width:700px;
-      background:#e8c58d;
-      border:14px solid #7c1d1d;
+      background:#e7c48d;
+      border:14px solid #7b1d1d;
       border-radius:24px;
-      padding:25px;
-      box-shadow:0 20px 60px rgba(0,0,0,0.45);
-      position:relative;
-      overflow:hidden;
+      padding:22px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.4);
     }
 
-    .top-title{
+    .title{
+      background:#7b1d1d;
+      color:white;
       text-align:center;
-      font-size:42px;
-      font-weight:900;
-      color:#fff;
-      background:#7c1d1d;
       padding:18px;
       border-radius:18px;
-      margin-bottom:25px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      font-size:40px;
+      font-weight:900;
+      margin-bottom:22px;
     }
 
-    .clock-box{
-      background:#000;
-      color:#ff1a1a;
-      font-size:70px;
+    .clock{
+      background:black;
+      color:#ff0000;
       text-align:center;
-      padding:15px;
-      border-radius:16px;
-      font-weight:700;
-      letter-spacing:4px;
-      margin-bottom:25px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.35);
+      font-size:72px;
       font-family:monospace;
+      padding:14px;
+      border-radius:16px;
+      margin-bottom:22px;
+      letter-spacing:4px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.35);
     }
 
     .next-prayer{
+      background:black;
+      color:#00ff66;
       text-align:center;
-      margin-bottom:30px;
-      font-size:28px;
-      font-weight:800;
-      color:#111;
+      font-size:30px;
+      padding:14px;
+      border-radius:14px;
+      margin-bottom:28px;
+      font-weight:bold;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
     }
 
-    .next-prayer span{
-      color:#7c1d1d;
-    }
-
-    .prayer-grid{
+    .grid{
       display:grid;
       grid-template-columns:1fr auto 1fr;
       gap:18px;
-      align-items:center;
+      align-items:start;
     }
 
     .column-title{
       text-align:center;
       font-size:28px;
       font-weight:900;
-      margin-bottom:15px;
+      margin-bottom:14px;
       color:#111;
     }
 
     .time-box{
-      background:#000;
-      color:#ff1a1a;
+      background:black;
       border-radius:14px;
-      padding:18px;
+      padding:14px;
       margin-bottom:14px;
       text-align:center;
       box-shadow:0 8px 18px rgba(0,0,0,0.25);
     }
 
+    .azan .time-box{
+      color:#ff0000;
+    }
+
     .eqama .time-box{
-      color:#00d95f;
+      color:#00ff66;
     }
 
-    .time-name{
-      font-size:26px;
-      font-weight:900;
-      margin-bottom:8px;
-      color:#fff;
+    .prayer-name{
+      color:white;
+      font-size:22px;
+      margin-bottom:6px;
+      font-weight:700;
     }
 
-    .time-value{
-      font-size:40px;
+    .time{
+      font-size:38px;
       font-family:monospace;
       letter-spacing:2px;
     }
 
-    .center-panel{
-      background:#b96d26;
-      color:#000;
+    .center{
+      background:#b86c24;
       border-radius:18px;
-      padding:20px 14px;
-      text-align:center;
+      padding:16px;
       min-width:140px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      text-align:center;
+      box-shadow:0 8px 18px rgba(0,0,0,0.25);
     }
 
-    .center-panel div{
-      margin:18px 0;
-      font-size:28px;
+    .center div{
+      font-size:30px;
       font-weight:900;
+      margin:18px 0;
     }
 
-    .bottom-bar{
-      margin-top:28px;
+    .bottom{
       display:flex;
       justify-content:space-between;
-      gap:14px;
+      margin-top:24px;
+      gap:12px;
       flex-wrap:wrap;
     }
 
-    .bottom-card{
-      background:#000;
-      color:#facc15;
-      padding:18px 24px;
+    .bottom-box{
+      background:black;
+      color:#ffcc00;
+      padding:16px 22px;
       border-radius:16px;
       font-size:30px;
       font-weight:900;
-      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+      box-shadow:0 8px 18px rgba(0,0,0,0.25);
     }
 
     .footer{
-      margin-top:24px;
       text-align:center;
+      margin-top:22px;
+      color:#555;
+      font-weight:bold;
       font-size:18px;
-      color:#4b5563;
-      font-weight:700;
     }
 
     @media(max-width:700px){
-      .prayer-grid{
+
+      .grid{
         grid-template-columns:1fr;
       }
 
-      .clock-box{
+      .clock{
         font-size:48px;
       }
 
-      .top-title{
-        font-size:30px;
+      .title{
+        font-size:28px;
       }
+
     }
+
   </style>
+
 </head>
 <body>
 
-<div class="frame">
+<div class="board">
 
-  <div class="top-title">
+  <div class="title">
     المؤذن الإلكتروني
   </div>
 
-  <div class="clock-box" id="clock">
-    08:18:00
+  <div class="clock" id="clock">
+    00:00:00
   </div>
 
-  <div class="next-prayer">
-    باقي على <span>الفجر</span> : 02:19:10
+  <div class="next-prayer" id="nextPrayer">
+    باقي على الفجر : 00:00:00
   </div>
 
-  <div class="prayer-grid">
+  <div class="grid">
 
     <div class="azan">
-      <div class="column-title">الأذان</div>
 
-      <div class="time-box">
-        <div class="time-name">الفجر</div>
-        <div class="time-value">04:15</div>
+      <div class="column-title">
+        الأذان
       </div>
 
       <div class="time-box">
-        <div class="time-name">الظهر</div>
-        <div class="time-value">12:05</div>
+        <div class="prayer-name">الفجر</div>
+        <div class="time">04:15</div>
       </div>
 
       <div class="time-box">
-        <div class="time-name">العصر</div>
-        <div class="time-value">03:42</div>
+        <div class="prayer-name">الظهر</div>
+        <div class="time">12:05</div>
       </div>
 
       <div class="time-box">
-        <div class="time-name">المغرب</div>
-        <div class="time-value">06:31</div>
+        <div class="prayer-name">العصر</div>
+        <div class="time">15:42</div>
       </div>
 
       <div class="time-box">
-        <div class="time-name">العشاء</div>
-        <div class="time-value">07:58</div>
+        <div class="prayer-name">المغرب</div>
+        <div class="time">18:31</div>
       </div>
+
+      <div class="time-box">
+        <div class="prayer-name">العشاء</div>
+        <div class="time">19:58</div>
+      </div>
+
     </div>
 
-    <div class="center-panel">
+    <div class="center">
+
       <div>الفجر</div>
       <div>الظهر</div>
       <div>العصر</div>
       <div>المغرب</div>
       <div>العشاء</div>
+
     </div>
 
     <div class="eqama">
-      <div class="column-title">الإقامة</div>
 
-      <div class="time-box">
-        <div class="time-name">الفجر</div>
-        <div class="time-value">04:35</div>
+      <div class="column-title">
+        الإقامة
       </div>
 
       <div class="time-box">
-        <div class="time-name">الظهر</div>
-        <div class="time-value">12:20</div>
+        <div class="prayer-name">الفجر</div>
+        <div class="time">04:35</div>
       </div>
 
       <div class="time-box">
-        <div class="time-name">العصر</div>
-        <div class="time-value">03:55</div>
+        <div class="prayer-name">الظهر</div>
+        <div class="time">12:20</div>
       </div>
 
       <div class="time-box">
-        <div class="time-name">المغرب</div>
-        <div class="time-value">06:36</div>
+        <div class="prayer-name">العصر</div>
+        <div class="time">15:55</div>
       </div>
 
       <div class="time-box">
-        <div class="time-name">العشاء</div>
-        <div class="time-value">08:10</div>
+        <div class="prayer-name">المغرب</div>
+        <div class="time">18:36</div>
       </div>
+
+      <div class="time-box">
+        <div class="prayer-name">العشاء</div>
+        <div class="time">20:10</div>
+      </div>
+
     </div>
 
   </div>
 
-  <div class="bottom-bar">
-    <div class="bottom-card">القائمة</div>
-    <div class="bottom-card">29°C</div>
+  <div class="bottom">
+
+    <div class="bottom-box">
+      القائمة
+    </div>
+
+    <div class="bottom-box">
+      29°C
+    </div>
+
   </div>
 
   <div class="footer">
@@ -276,26 +294,110 @@
 </div>
 
 <script>
-function updateClock() {
+
+function updateClock(){
+
   const now = new Date();
+
   const h = String(now.getHours()).padStart(2,'0');
   const m = String(now.getMinutes()).padStart(2,'0');
   const s = String(now.getSeconds()).padStart(2,'0');
-  document.getElementById('clock').innerText = `${h}:${m}:${s}`;
+
+  document.getElementById("clock").innerHTML =
+    h + ":" + m + ":" + s;
 }
 
 setInterval(updateClock,1000);
+
 updateClock();
+
+const prayers = [
+  { name: "الفجر", time: "04:15" },
+  { name: "الظهر", time: "12:05" },
+  { name: "العصر", time: "15:42" },
+  { name: "المغرب", time: "18:31" },
+  { name: "العشاء", time: "19:58" }
+];
+
+function getNextPrayer() {
+
+  const now = new Date();
+
+  for (let prayer of prayers) {
+
+    const [hours, minutes] = prayer.time.split(":");
+
+    const prayerDate = new Date();
+
+    prayerDate.setHours(hours);
+    prayerDate.setMinutes(minutes);
+    prayerDate.setSeconds(0);
+
+    if (prayerDate > now) {
+
+      return {
+        name: prayer.name,
+        date: prayerDate
+      };
+
+    }
+
+  }
+
+  const fajr = prayers[0];
+
+  const [hours, minutes] = fajr.time.split(":");
+
+  const tomorrow = new Date();
+
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  tomorrow.setHours(hours);
+  tomorrow.setMinutes(minutes);
+  tomorrow.setSeconds(0);
+
+  return {
+    name: fajr.name,
+    date: tomorrow
+  };
+
+}
+
+function updateCountdown() {
+
+  const nextPrayer = getNextPrayer();
+
+  const now = new Date();
+
+  const diff = nextPrayer.date - now;
+
+  const hours =
+    Math.floor(diff / (1000 * 60 * 60));
+
+  const minutes =
+    Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+  const seconds =
+    Math.floor((diff % (1000 * 60)) / 1000);
+
+  const formatted =
+    String(hours).padStart(2,'0') + ":" +
+    String(minutes).padStart(2,'0') + ":" +
+    String(seconds).padStart(2,'0');
+
+  document.getElementById("nextPrayer").innerHTML =
+    "باقي على " +
+    nextPrayer.name +
+    " : " +
+    formatted;
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
 </script>
 
 </body>
 </html>
-```
-
-# How to use
-
-1. Open your GitHub repository.
-2. Open `index.html`.
-3. Replace all content with the code above.
-4. Commit changes.
-5. Wait 1 minute and refresh your website.
