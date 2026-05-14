@@ -2,234 +2,291 @@
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Electronic Azan</title>
+  <title>المؤذن الإلكتروني</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #111827);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
+    body{
+      font-family:'Cairo',sans-serif;
+      background:#3d0f0f;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:25px;
     }
 
-    .bg-circle {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.25;
+    .frame{
+      width:100%;
+      max-width:700px;
+      background:#e8c58d;
+      border:14px solid #7c1d1d;
+      border-radius:24px;
+      padding:25px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);
+      position:relative;
+      overflow:hidden;
     }
 
-    .circle1 {
-      width: 350px;
-      height: 350px;
-      background: #22c55e;
-      top: -100px;
-      left: -100px;
+    .top-title{
+      text-align:center;
+      font-size:42px;
+      font-weight:900;
+      color:#fff;
+      background:#7c1d1d;
+      padding:18px;
+      border-radius:18px;
+      margin-bottom:25px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
     }
 
-    .circle2 {
-      width: 300px;
-      height: 300px;
-      background: #3b82f6;
-      bottom: -100px;
-      right: -100px;
+    .clock-box{
+      background:#000;
+      color:#ff1a1a;
+      font-size:70px;
+      text-align:center;
+      padding:15px;
+      border-radius:16px;
+      font-weight:700;
+      letter-spacing:4px;
+      margin-bottom:25px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.35);
+      font-family:monospace;
     }
 
-    .container {
-      width: 90%;
-      max-width: 900px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(18px);
-      border-radius: 28px;
-      padding: 50px;
-      text-align: center;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-      z-index: 2;
+    .next-prayer{
+      text-align:center;
+      margin-bottom:30px;
+      font-size:28px;
+      font-weight:800;
+      color:#111;
     }
 
-    .logo {
-      width: 110px;
-      height: 110px;
-      border-radius: 24px;
-      margin-bottom: 25px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
-      object-fit: cover;
+    .next-prayer span{
+      color:#7c1d1d;
     }
 
-    h1 {
-      font-size: 52px;
-      margin-bottom: 15px;
-      font-weight: 700;
+    .prayer-grid{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:18px;
+      align-items:center;
     }
 
-    .subtitle {
-      font-size: 22px;
-      color: #d1d5db;
-      margin-bottom: 35px;
-      line-height: 1.8;
+    .column-title{
+      text-align:center;
+      font-size:28px;
+      font-weight:900;
+      margin-bottom:15px;
+      color:#111;
     }
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 25px;
+    .time-box{
+      background:#000;
+      color:#ff1a1a;
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:14px;
+      text-align:center;
+      box-shadow:0 8px 18px rgba(0,0,0,0.25);
     }
 
-    .btn {
-      text-decoration: none;
-      padding: 16px 28px;
-      border-radius: 16px;
-      font-size: 18px;
-      font-weight: 600;
-      transition: 0.3s ease;
-      display: inline-block;
+    .eqama .time-box{
+      color:#00d95f;
     }
 
-    .primary {
-      background: #22c55e;
-      color: white;
+    .time-name{
+      font-size:26px;
+      font-weight:900;
+      margin-bottom:8px;
+      color:#fff;
     }
 
-    .primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(34,197,94,0.4);
+    .time-value{
+      font-size:40px;
+      font-family:monospace;
+      letter-spacing:2px;
     }
 
-    .secondary {
-      background: rgba(255,255,255,0.08);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.15);
+    .center-panel{
+      background:#b96d26;
+      color:#000;
+      border-radius:18px;
+      padding:20px 14px;
+      text-align:center;
+      min-width:140px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
     }
 
-    .secondary:hover {
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.12);
+    .center-panel div{
+      margin:18px 0;
+      font-size:28px;
+      font-weight:900;
     }
 
-    .features {
-      margin-top: 45px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
+    .bottom-bar{
+      margin-top:28px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
-    .feature-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 18px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
+    .bottom-card{
+      background:#000;
+      color:#facc15;
+      padding:18px 24px;
+      border-radius:16px;
+      font-size:30px;
+      font-weight:900;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
     }
 
-    .feature-card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
+    .footer{
+      margin-top:24px;
+      text-align:center;
+      font-size:18px;
+      color:#4b5563;
+      font-weight:700;
     }
 
-    .feature-card p {
-      color: #d1d5db;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    footer {
-      margin-top: 40px;
-      color: #9ca3af;
-      font-size: 14px;
-    }
-
-    @media(max-width: 700px) {
-      .container {
-        padding: 35px 22px;
+    @media(max-width:700px){
+      .prayer-grid{
+        grid-template-columns:1fr;
       }
 
-      h1 {
-        font-size: 38px;
+      .clock-box{
+        font-size:48px;
       }
 
-      .subtitle {
-        font-size: 18px;
+      .top-title{
+        font-size:30px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-circle circle1"></div>
-  <div class="bg-circle circle2"></div>
+<div class="frame">
 
-  <div class="container">
+  <div class="top-title">
+    المؤذن الإلكتروني
+  </div>
 
-    <img class="logo" src="https://play-lh.googleusercontent.com/5x9vB9g9J9f5xN0v2P9W9rY2zK9rM8J2m6vV4h2R3Q1n4w1Q9Y7xQ0mT8W0b0s=s180-rw" alt="Electronic Azan Logo">
+  <div class="clock-box" id="clock">
+    08:18:00
+  </div>
 
-    <h1>Electronic Azan</h1>
+  <div class="next-prayer">
+    باقي على <span>الفجر</span> : 02:19:10
+  </div>
 
-    <p class="subtitle">
-      Smart prayer clock application with accurate prayer times,
-      beautiful Islamic design, and advanced customization features.
-    </p>
+  <div class="prayer-grid">
 
-    <div class="buttons">
-      <a class="btn primary" href="https://appgallery.huawei.com/" target="_blank">
-        Download on AppGallery
-      </a>
+    <div class="azan">
+      <div class="column-title">الأذان</div>
 
-      <a class="btn secondary" href="app-ads.txt" target="_blank">
-        Open app-ads.txt
-      </a>
+      <div class="time-box">
+        <div class="time-name">الفجر</div>
+        <div class="time-value">04:15</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-name">الظهر</div>
+        <div class="time-value">12:05</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-name">العصر</div>
+        <div class="time-value">03:42</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-name">المغرب</div>
+        <div class="time-value">06:31</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-name">العشاء</div>
+        <div class="time-value">07:58</div>
+      </div>
     </div>
 
-    <div class="features">
-
-      <div class="feature-card">
-        <h3>Accurate Prayer Times</h3>
-        <p>
-          Daily prayer times based on your location with high precision.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Islamic Design</h3>
-        <p>
-          Elegant and modern Islamic-inspired interface.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Custom Azan</h3>
-        <p>
-          Customize prayer sounds and notifications easily.
-        </p>
-      </div>
-
+    <div class="center-panel">
+      <div>الفجر</div>
+      <div>الظهر</div>
+      <div>العصر</div>
+      <div>المغرب</div>
+      <div>العشاء</div>
     </div>
 
-    <footer>
-      © 2026 Electronic Azan — All Rights Reserved.
-    </footer>
+    <div class="eqama">
+      <div class="column-title">الإقامة</div>
+
+      <div class="time-box">
+        <div class="time-name">الفجر</div>
+        <div class="time-value">04:35</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-name">الظهر</div>
+        <div class="time-value">12:20</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-name">العصر</div>
+        <div class="time-value">03:55</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-name">المغرب</div>
+        <div class="time-value">06:36</div>
+      </div>
+
+      <div class="time-box">
+        <div class="time-name">العشاء</div>
+        <div class="time-value">08:10</div>
+      </div>
+    </div>
 
   </div>
+
+  <div class="bottom-bar">
+    <div class="bottom-card">القائمة</div>
+    <div class="bottom-card">29°C</div>
+  </div>
+
+  <div class="footer">
+    Electronic Azan © 2026
+  </div>
+
+</div>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('clock').innerText = `${h}:${m}:${s}`;
+}
+
+setInterval(updateClock,1000);
+updateClock();
+</script>
 
 </body>
 </html>
